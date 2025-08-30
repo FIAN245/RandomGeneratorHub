@@ -1,15 +1,11 @@
-export function initDiceGenerator() {
-  const diceResult = document.getElementById("dice-result");
-  const rollBtn = document.getElementById("roll-dice");
+const diceBtn = document.querySelector('[data-generator="dice"] button');
 
-  rollBtn.addEventListener("click", () => {
-    diceResult.classList.add("dice-rolling");
+function rollDice() {
+  return Math.floor(Math.random() * 6) + 1;
+}
 
-    // delay animasi lalu hasil muncul
-    setTimeout(() => {
-      const roll = Math.floor(Math.random() * 6) + 1;
-      diceResult.textContent = roll;
-      diceResult.classList.remove("dice-rolling");
-    }, 500);
+if (diceBtn) {
+  diceBtn.addEventListener("click", () => {
+    alert(`🎲 Dadu menunjukkan angka: ${rollDice()}`);
   });
 }
