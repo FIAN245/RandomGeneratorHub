@@ -1,98 +1,57 @@
-:root {
-  --bg: #0b0f14;
-  --surface: #111827;
-  --text: #e5e7eb;
-  --muted: #9ca3af;
-  --accent: #7c3aed; /* ungu elegan; bebas ganti */
-  --accent-2: #22d3ee; /* cyan lembut */
-  --radius: 16px;
-}
-
-/* Reset ringan */
-* { box-sizing: border-box; }
-html, body { height: 100%; }
 body {
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  text-align: center;
   margin: 0;
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  color: var(--text);
-  background: radial-gradient(1000px 600px at 10% -10%, rgba(124,58,237,.25), transparent),
-              radial-gradient(1000px 600px at 110% 10%, rgba(34,211,238,.2), transparent),
-              var(--bg);
+  padding: 20px;
 }
 
-.container { width: min(1100px, 92%); margin-inline: auto; }
-.section { padding: 56px 0; }
-
-.site-header {
-  position: sticky; top: 0; z-index: 10;
-  background: rgba(17,24,39, .85);
-  backdrop-filter: saturate(1.2) blur(12px);
-  border-bottom: 1px solid rgba(255,255,255,.06);
+h1 {
+  margin-bottom: 30px;
+  color: #333;
 }
-.header-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
-.brand { color: var(--text); text-decoration: none; font-weight: 800; letter-spacing: .2px; }
-.nav a { color: var(--muted); text-decoration: none; margin-left: 16px; }
-.nav a:hover { color: var(--text); }
 
-.hero { padding: 64px 0 28px; }
-.hero-inner { text-align: center; }
-.hero h1 { font-size: clamp(32px, 6vw, 54px); line-height: 1.05; margin: 0 0 12px; }
-.hero p { color: var(--muted); margin: 0 0 22px; }
-
-.btn, .btn-ghost {
-  display: inline-block; border: 1px solid transparent; cursor: pointer;
-  padding: 10px 16px; border-radius: var(--radius); font-weight: 600;
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: auto;
 }
-.btn { background: linear-gradient(90deg, var(--accent), var(--accent-2)); color: #0b0f14; }
-.btn:hover { filter: brightness(1.1); }
-.btn-ghost { background: transparent; color: var(--text); border-color: rgba(255,255,255,.12); }
-.btn-ghost:hover { background: rgba(255,255,255,.06); }
 
-h2 { font-size: clamp(22px, 3.5vw, 32px); margin: 0 0 18px; }
-.grid {
-  display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-}
 .card {
-  background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02));
-  border: 1px solid rgba(255,255,255,.06);
-  border-radius: var(--radius);
-  padding: 18px; display: flex; flex-direction: column; gap: 8px;
-  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
-.card:hover { transform: translateY(-3px); border-color: rgba(124,58,237,.35); box-shadow: 0 6px 24px rgba(124,58,237,.18); }
-.card h3 { margin: 0; font-size: 18px; }
-.card p { margin: 0; color: var(--muted); }
 
-.site-footer { border-top: 1px solid rgba(255,255,255,.06); padding: 28px 0; color: var(--muted); }
+button {
+  background: #0077ff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
 
-/* Aksesibilitas fokus */
-:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 2px; border-radius: 10px; }
+button:hover {
+  background: #005dcc;
+}
 
-/* Bab 2: hasil Random Color */
 .result {
-  margin-top: 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-.result.hidden { display: none; }
-
-.color-preview {
-  width: 100%;
-  height: 100px; /* silakan ubah (tugas praktik) */
-  border-radius: var(--radius);
-  border: 1px solid rgba(255,255,255,.1);
-  transition: background .3s ease; /* animasi halus */
+  margin-top: 15px;
 }
 
-.dice-result {
-  font-size: 3rem;
-  font-weight: bold;
-  margin: 10px 0;
-  transition: transform 0.3s ease;
+#color-preview {
+  width: 100px;
+  height: 100px;
+  margin: 10px auto;
+  border-radius: 8px;
+  border: 1px solid #ccc;
 }
 
-.dice-rolling {
-  transform: rotate(360deg) scale(1.2);
+.hidden {
+  display: none;
 }
-
