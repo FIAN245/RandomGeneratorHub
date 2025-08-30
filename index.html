@@ -1,84 +1,53 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Random Generator Hub</title>
-  <meta name="description" content="Kumpulan generator acak yang seru dan bermanfaat: warna, dadu, password, username, dan lainnya." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generator Serba Random</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="./">🎲 RNG Hub</a>
-      <nav class="nav">
-        <a href="#generators">Generators</a>
-        <a href="#about">Tentang</a>
-        <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
-      </nav>
-    </div>
-  </header>
+  <h1>✨ Generator Serba Random ✨</h1>
 
-  <main>
-    <section class="hero">
-      <div class="container hero-inner">
-        <h1>Random Generator Hub</h1>
-        <p>Kumpulan alat acak yang <strong>unik</strong>, <strong>interaktif</strong>, dan <strong>keren</strong> — dibuat bertahap seperti kursus mini.</p>
-        <a class="btn" href="#generators">Jelajahi</a>
+  <div class="container">
+
+    <!-- Random Color -->
+    <div class="card" data-generator="color">
+      <h2>🎨 Random Color</h2>
+      <button id="color-generate">Generate Warna</button>
+      <div class="result hidden">
+        <div id="color-preview"></div>
+        <p><strong>HEX:</strong> <span id="color-hex"></span></p>
+        <p><strong>RGB:</strong> <span id="color-rgb"></span></p>
+        <button id="copy-color">Copy</button>
       </div>
-    </section>
-
-    <section id="generators" class="container section">
-      <h2>Generators</h2>
-      <div class="grid">
-        <!-- Random Color (aktif di Bab 2) -->
-        <article class="card" data-generator="color">
-          <h3>🎨 Random Color</h3>
-          <p>Temukan warna kejutan untuk desainmu.</p>
-          <div class="result hidden" id="color-result">
-            <div class="color-preview" id="color-preview"></div>
-            <p><span id="color-hex">#000000</span> | <span id="color-rgb">rgb(0,0,0)</span></p>
-            <button class="btn-ghost" id="copy-color" aria-label="Salin kode warna">Salin</button>
-          </div>
-          <button class="btn-ghost" id="color-generate" aria-label="Hasilkan warna acak">Coba</button>
-        </article>
-
-        <!-- Placeholder generator lain (aktif di bab berikutnya) -->
-       <article class="card" data-generator="dice">
-         <h3>Dice Roll 🎲</h3>
-         <p>Lempar dadu virtual untuk keputusan cepat.</p>
-         <div id="dice-result" class="dice-result">-</div>
-         <button class="btn-ghost" id="roll-dice">Lempar Dadu</button>
-       </article>
-        
-        <article class="card" data-generator="password">
-          <h3>🔐 Password</h3>
-          <p>Buat kata sandi acak yang kuat.</p>
-          <button class="btn-ghost">Coba</button>
-        </article>
-        <article class="card" data-generator="username">
-          <h3>👤 Username</h3>
-          <p>Nama pengguna acak yang catchy.</p>
-          <button class="btn-ghost">Coba</button>
-        </article>
-      </div>
-    </section>
-
-    <section id="about" class="container section">
-      <h2>Tentang Proyek</h2>
-      <p>Proyek ini dibangun bertahap. Bab 2 mengaktifkan generator pertama (Random Color) dengan UI yang jelas dan praktis.</p>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <small>© <span id="year"></span> Random Generator Hub — Dibuat untuk belajar bertahap.</small>
     </div>
-  </footer>
 
-  <script type="module" src="js/app.js" defer></script>
+    <!-- Dice Roll -->
+    <div class="card" data-generator="dice">
+      <h2>🎲 Dice Roll</h2>
+      <button>Roll Dadu</button>
+    </div>
+
+    <!-- Password Generator -->
+    <div class="card" data-generator="password">
+      <h2>🔑 Password Generator</h2>
+      <button>Generate Password</button>
+    </div>
+
+    <!-- Random Quote -->
+    <div class="card" data-generator="quote">
+      <h2>💡 Random Quote</h2>
+      <button>Ambil Quote</button>
+    </div>
+
+  </div>
+
+  <!-- Script -->
+  <script src="app.js"></script>
+  <script src="generators/color.js"></script>
+  <script src="generators/dice.js"></script>
+  <script src="generators/password.js"></script>
+  <script src="generators/quote.js"></script>
 </body>
 </html>
