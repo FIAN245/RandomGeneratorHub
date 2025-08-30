@@ -1,11 +1,34 @@
-export function generateRandomColor() {
-  // Random 0-255
+const colorBtn = document.getElementById("color-generate");
+const colorPreview = document.getElementById("color-preview");
+const colorHex = document.getElementById("color-hex");
+const colorRgb = document.getElementById("color-rgb");
+const copyBtn = document.getElementById("copy-color");
+
+function randomColor() {
   const r = Math.floor(Math.random() * 256);
   const g = Math.floor(Math.random() * 256);
   const b = Math.floor(Math.random() * 256);
+  const hex = `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)}`;
+  return { hex, rgb: `rgb(${r}, ${g}, ${b})` };
+}
 
-  const rgb = `rgb(${r}, ${g}, ${b})`;
-  const hex = `#${r.toString(16).padStart(2, '0')}${g.toString(16).padStart(2, '0')}${b.toString(16).padStart(2, '0')}`;
+if (colorBtn) {
+  colorBtn.addEventListener("click", () => {
+    const { hex, rgb } = randomColor();
+    colorPreview.style.background = hex;
+    colorHex.textContent = hex;
+    colorRgb.textContent = rgb;
+    document.querySelector(".result").classList.remove("hidden");
+  });
+}
 
-  return { rgb, hex };
+if (copyBtn) {
+  copyBtn.addEventListener("click", () => {
+    const text = `${colorHex.textContent} | ${colorRgb.textContent}`;
+    navigator.clipboard.writeText(text).then(() => {
+      const original = copyBtn.textContent;
+      copyBtn.textContent = "✔ Disalin!";
+      setTimeout(() => (copyBtn.textContent = original), 1200);
+    });
+  });
 }
