@@ -45,3 +45,15 @@ document.querySelectorAll('[data-generator]').forEach(card => {
     (btn || card).addEventListener('click', () => notReady(key));
   }
 });
+.dice-result {
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 10px 0;
+  transition: transform 0.3s ease;
+}
+
+.dice-rolling {
+  transform: rotate(360deg) scale(1.2);
+}
+
+
